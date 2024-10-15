@@ -1,0 +1,182 @@
+.logos {
+  overflow: hidden;
+  background: var(--orange-color);
+  white-space: nowrap;
+  width: 100%;
+}
+
+.logo-slide {
+  padding: 10px 0px;
+  display: inline-block;
+  animation: 20s slide infinite linear;
+}
+.navlogo {
+  color: var(--orange-color);
+  font-size: 5rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+}
+.logo-slide span {
+  margin: 0 100px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.navmain {
+  border-bottom: 1px solid rgb(65, 65, 65);
+}
+marquee {
+  background-color: var(--orange-color);
+}
+nav input {
+  width: 600px;
+  padding: 14px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  outline: none;
+}
+
+nav input::placeholder {
+  color: rgb(92, 92, 92);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sec-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  gap: 20px;
+  border-bottom: 1px solid rgb(65, 65, 65);
+}
+.sec-nav a {
+  color: white;
+  font-size: 16px;
+  font-family: Mulish, sans-serif;
+  font-weight: 700;
+  transition: 0.5s;
+  padding-bottom: 5px;
+}
+.sec-nav .navLink:hover {
+  color: var(--orange-color);
+}
+
+.sec-nav .navLink::after {
+  content: "";
+  background-color: var(--orange-color); /* Use the defined orange color */
+  width: 0; /* Initial width */
+  height: 2px;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: width 0.2s; /* Transition effect for width */
+}
+.menuhide {
+  display: none;
+}
+.sec-nav .navLink:hover::after {
+  width: 100%; /* Full width on hover */
+}
+
+.active {
+  /* color: var(--orange-color);  */
+  border-bottom: 2px solid var(--orange-color);
+}
+.active {
+  color: var(--orange-color) !important;
+}
+.sec-nav button {
+  background-color: transparent;
+  /* border: 1px solid var(--orange-color); */
+}
+/* ***********dropdown  */
+/* Style for the dropdown container */
+.nav-dropdown-toggle {
+  cursor: pointer;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  top: 40px;
+  left: -20px;
+  z-index: 1000;
+  width: 150px;
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-dropdown-item:hover {
+  background-color: #f4f4f4;
+}
+
+.nav-dropdown-toggle.active + .nav-dropdown-menu {
+  display: block;
+}
+
+.topSlider{
+  font-family: Mulish, sans-serif !important;
+}
+
+
+
+
+/* Overlay */
+.fixed.inset-0.bg-black.opacity-50.z-40 {
+  transition: opacity 0.3s ease;
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+  transition: transform 0.3s ease;
+  height: 100vh!important;
+}
+
+.cart-sidebar {
+  transform: translateX(0); /* Show the sidebar */
+}
+
+.cart-sidebar.closed {
+  transform: translateX(100%); /* Hide the sidebar */
+}
+
+.cart-items::-webkit-scrollbar{
+  width: 2px;
+  height: 2px;
+  background-color: transparent;
+  margin-right: 10px;
+}
+.cart-items{
+  overflow-y: scroll;
+}
+.cart-items::-webkit-scrollbar-track{
+  
+  background-color: transparent;
+}
+.cart-items::-webkit-scrollbar-thumb{
+  
+  background-color: gray;
+}

@@ -1,0 +1,29 @@
+.subpages-header {
+  background-image: url("../Images/headerimages/headerfaq.jpg");
+  width: 100%;
+  height: 60vh;
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.541);
+  background-blend-mode: color;
+  background-attachment: fixed;
+}
+.faqimg {
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.377);
+}
+.section_frequent_questions .para {
+  font-family: Lato, sans-serif;
+  font-size: 16px !important;
+  line-height: 1.6;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer.expanded {
+  max-height: 300px; /* Adjust this height based on the expected content */
+}

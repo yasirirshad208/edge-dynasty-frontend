@@ -1,0 +1,41 @@
+.main-checkout{
+    padding: 50px 0;
+    width: 80%;
+    margin: auto;
+}
+
+.order-summary-div{
+    padding: 15px 25px;
+}
+.ft-14{
+    font-size: 16px;
+}
+
+@media(max-width:1300px){
+    .main-checkout{
+        width: 90%;
+    }
+}
+
+@media(max-width:1024px){
+    .main-checkout{
+        width: 95%;
+    }
+}
+@media(max-width:900px){
+    .checkout-wrapper{
+        flex-direction: column;
+    }
+}
+
+@media(max-width:400px){
+    .card-flex{
+        flex-direction: column;
+    }
+    .order-summary-div{
+        padding: 15px 10px;
+    }
+    .ft-14{
+        font-size: 14px;
+    }
+}

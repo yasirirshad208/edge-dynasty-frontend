@@ -1,0 +1,130 @@
+.inputshop {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid white;
+}
+.inputshop::placeholder {
+  color: white;
+}
+.section-1-shop {
+  padding: 80px 0px;
+}
+.categoreis-filterbox {
+  border: 1px solid rgba(255, 255, 255, 0.349);
+  max-width: 250px;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+.categoreis-filterbox input {
+  margin-bottom: 15px;
+  transform: scale(1.5);
+  outline: none;
+  border: none;
+  accent-color: var(--orange-color);
+}
+.categoreis-filterbox span {
+  font-size: 20px !important;
+}
+.showresults {
+  border-bottom: 1px solid white;
+  width: 100%;
+}
+.productshop {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.productshop span {
+  color: var(--orange-color);
+  font-size: 22px;
+  font-weight: 800;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+}
+.idproduct {
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.buybtnshop button {
+  background-color: var(--orange-color);
+  padding: 18px 13px;
+  /* border-radius: 14px; */
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 20px;
+  transition: 0.5s;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.buybtnshop {
+  left: -100px;
+  transition: 0.5s;
+}
+.productshop:hover .buybtnshop {
+  left: 20px;
+  cursor: pointer;
+}
+.productshop:active {
+  opacity: 0.2;
+  border-radius: 10px;
+}
+.custom-checkbox input:checked + .checkmark::after {
+  border: solid orange; /* Change tick mark color to orange */
+}
+/* ***************************** */
+/* checkbox  */
+/* ******************************** */
+.filtertoggle {
+  width: 200px;
+  background-color: var(--orange-color);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+/* Default styles - Filter is visible on larger screens */
+.md\:block {
+  display: block;
+}
+
+/* Hide filter on small screens */
+.filtertoggle {
+  display: none;
+}
+
+/* Show filter button on small screens */
+@media (max-width: 768px) {
+  .filtertoggle {
+    display: block;
+  }
+
+  .filter-show {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .filter-show {
+    display: block;
+  }
+}
+/* .daggers {
+  background-image: url("./daggers.jpg");
+} */
+.daggers {
+  background-image: url("../Data/product2/blackdagger2.webp");
+  width: 100%;
+  height: 60vh;
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.541);
+  background-blend-mode: color;
+  background-attachment: fixed;
+}

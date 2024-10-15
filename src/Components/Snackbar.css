@@ -1,0 +1,27 @@
+/* src/components/Snackbar.css */
+.snackbar {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #ff6a00;
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .snackbar-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 15px;
+  }
+  
