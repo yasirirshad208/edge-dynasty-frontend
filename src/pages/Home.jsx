@@ -240,7 +240,7 @@ const Home = () => {
               <div key={element.id}>
                 <img
                   className="w-[100%] h-[300px] object-cover rounded-tr-2xl rounded-tl-2xl"
-                  src={"http://3.87.157.93:5000/"+element.mainImage}
+                  src={"http://52.203.78.4:5000/"+element.mainImage}
                   alt={element.title}
                 />
                 <div className="flex rounded-br-2xl rounded-bl-2xl flex-col justify-center bg-transparent shadow-orange-600 shadow-sm items-center py-16 p-5">
@@ -309,7 +309,7 @@ const Home = () => {
             {products.map((element) => (
               <Link to={`/product/${element._id}`}>
               <div>
-                <img src={"http://3.87.157.93:5000/"+element.mainImage} alt="" style={{marginLeft:"20px"}}/>
+                <img src={"http://52.203.78.4:5000/"+element.mainImage} alt="" style={{marginLeft:"20px"}}/>
               </div>
               </Link>
             ))}

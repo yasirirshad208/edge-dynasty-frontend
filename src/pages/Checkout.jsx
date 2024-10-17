@@ -17,6 +17,7 @@ const Checkout = () => {
   const elements = useElements();
   const { cart } = useContext(CartContext);
   const { loggedIn } = useAuth();
+  
 
   const [formData, setFormData] = useState({
     email: "",
@@ -69,7 +70,7 @@ const Checkout = () => {
       if (token) {
         try {
           const response = await axios.get(
-            "http://3.87.157.93:5000/api/user/get",
+            "http://52.203.78.4:5000/api/user/get",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -175,7 +176,7 @@ const Checkout = () => {
 
         console.log(cartProducts);
         const response = await axios.post(
-          "http://3.87.157.93:5000/api/order/payment-stripe",
+          "http://52.203.78.4:5000/api/order/payment-stripe",
           {
             paymentMethodId: pm.id,
             amount: calculateSubtotal() + 30, // Include subtotal logic
@@ -225,7 +226,7 @@ const Checkout = () => {
             <div className="space-y-6">
               {/* Input Fields */}
               <div>
-                <label className="block text-[15px] mb-2">Email</label>
+                <label className="block text-[15px] mb-2">Email <span style={{color:"red"}}>*</span> </label>
                 <input
                   type="email"
                   name="email"
@@ -246,7 +247,7 @@ const Checkout = () => {
               </div>
               <div className="flex space-x-4">
                 <div className="w-1/2">
-                  <label className="block text-[15px] mb-2">First Name</label>
+                  <label className="block text-[15px] mb-2">First Name <span style={{color:"red"}}>*</span> </label>
                   <input
                     type="text"
                     name="firstName"
@@ -266,7 +267,7 @@ const Checkout = () => {
                   )}
                 </div>
                 <div className="w-1/2">
-                  <label className="block text-[15px] mb-2">Last Name</label>
+                  <label className="block text-[15px] mb-2">Last Name <span style={{color:"red"}}>*</span> </label>
                   <input
                     type="text"
                     name="lastName"
@@ -287,7 +288,7 @@ const Checkout = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-[15px] mb-2">Country</label>
+                <label className="block text-[15px] mb-2">Country <span style={{color:"red"}}>*</span> </label>
                 <input
                   type="text"
                   name="country"
@@ -308,8 +309,7 @@ const Checkout = () => {
               </div>
               <div>
                 <label className="block text-[15px] mb-2">
-                  Street Address 1
-                </label>
+                  Street Address 1 <span style={{color:"red"}}>*</span> </label>
                 <input
                   type="text"
                   name="streetAddress1"
@@ -330,13 +330,12 @@ const Checkout = () => {
               </div>
               <div>
                 <label className="block text-[15px] mb-2">
-                  Street Address 2
-                </label>
+                  Street Address 2 </label>
                 <input
                   type="text"
                   name="streetAddress2"
                   placeholder="Enter your second address"
-                  className="w-full p-3 bg-[#0e0e0e] text-white border border-[rgba(255,255,255,0.4)] border-0.5 outline-none text-[15px]"
+                  className="w-full px-3 py-5 bg-[#0e0e0e] text-white border border-[rgba(255,255,255,0.4)] border-0.5 outline-none text-[15px]"
                   value={formData.streetAddress2}
                   onChange={handleInputChange}
                 />
@@ -344,8 +343,7 @@ const Checkout = () => {
               </div>
               <div>
                 <label className="block text-[15px] mb-2">
-                  Province / State
-                </label>
+                  Province / State <span style={{color:"red"}}>*</span> </label>
                 <input
                   type="text"
                   name="state"
@@ -366,7 +364,7 @@ const Checkout = () => {
               </div>
               <div className="flex space-x-4">
                 <div className="w-1/2">
-                  <label className="block text-[15px] mb-2">City</label>
+                  <label className="block text-[15px] mb-2">City <span style={{color:"red"}}>*</span> </label>
                   <input
                     type="text"
                     name="city"
@@ -386,7 +384,7 @@ const Checkout = () => {
                   )}
                 </div>
                 <div className="w-1/2">
-                  <label className="block text-[15px] mb-2">Post Code</label>
+                  <label className="block text-[15px] mb-2">Post Code <span style={{color:"red"}}>*</span> </label>
                   <input
                     type="text"
                     name="postCode"
@@ -407,7 +405,7 @@ const Checkout = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-[15px] mb-2">Phone</label>
+                <label className="block text-[15px] mb-2">Phone <span style={{color:"red"}}>*</span> </label>
                 <input
                   type="text"
                   name="phone"
@@ -435,7 +433,7 @@ const Checkout = () => {
                     onChange={handleInputChange}
                     checked={formData.saveInfo === "save-info"}
                   />
-                  <label className="block text-[15px] mt-0.5">Save Info</label>
+                  <label className="block text-[15px] mt-0.5">Save Info </label>
                 </div>
               )}
 
@@ -454,19 +452,29 @@ const Checkout = () => {
                 Order Summary
               </h2>
               <div className="py-7 flex justify-between border-b border-gray-600">
+                <p className="ft-14 font-semibold"> PRODUCTS </p>
+                <p className="ft-14 font-semibold"> SUBTOTAL </p>
+              </div>
+              <div className="py-7 flex justify-between border-b border-gray-600">
+              <div className="cart-items w-[100%]">
+              {cart.map((item) => (
+              <div key={item._id} className="flex items-center my-6 w-[100%]">
+                <div className="ml-4 flex-grow">
+                  <h3 className="text-[16px]">{item.name}</h3>
+                </div>
+                <p className="text-[12px] text-[#5c5c5c]">
+                    {item.quantity} x ${item.price} = ${item.quantity * item.price}
+                  </p>
+              </div>
+            ))}
+              </div>
+              </div>
+              <div className="py-7 flex justify-between border-b border-gray-600">
                 <p className="ft-14">Subtotal:</p>
                 <p className="ft-14 font-semibold">
                   ${calculateSubtotal().toFixed(2)}
                 </p>
               </div>
-              {loggedIn &&(
-                 <div className="py-7 flex justify-between border-b border-gray-600">
-                 <p className="ft-14">Discount:</p>
-                 <p className="ft-14 font-semibold">
-                   ${calculateSubtotal().toFixed(2)}
-                 </p>
-               </div>
-              )}
               <div className="py-7 flex justify-between border-b border-gray-600">
                 <p className="ft-14">Shipping:</p>
                 <p className="ft-14 font-semibold">$30.00</p>
@@ -495,8 +503,7 @@ const Checkout = () => {
                   className="mr-2"
                 />
                 <label htmlFor="creditCard" className="text-[16px]">
-                  Credit Card
-                </label>
+                  Credit Card / Debit Card</label>
               </div>
               <div className="flex items-center">
                 <input
@@ -509,8 +516,7 @@ const Checkout = () => {
                   className="mr-2"
                 />
                 <label htmlFor="paypal" className="text-[16px]">
-                  PayPal
-                </label>
+                  PayPal </label>
               </div>
             </div>
 
@@ -519,7 +525,7 @@ const Checkout = () => {
               <div className="bg-[#0b0b0b] p-5 rounded-lg">
                 {/* Credit Card Inputs */}
                 <div className="mb-5">
-                  <label className="block text-[15px] mb-2">Card Number</label>
+                  <label className="block text-[15px] mb-2">Card Number <span style={{color:"red"}}>*</span> </label>
                   <CardNumberElement
                     options={{
                       style: {
@@ -547,8 +553,7 @@ const Checkout = () => {
                 <div className="flex gap-5 mb-5 card-flex">
                   <div className="flex-1 expiration-input">
                     <label className="block text-[15px] mb-2">
-                      Expiration Date
-                    </label>
+                      Expiration Date <span style={{color:"red"}}>*</span> </label>
                     <CardExpiryElement
                       options={{
                         style: {
@@ -574,7 +579,7 @@ const Checkout = () => {
                     )}
                   </div>
                   <div className="flex-1">
-                    <label className="block text-[15px] mb-2">CVC</label>
+                    <label className="block text-[15px] mb-2">CVC <span style={{color:"red"}}>*</span> </label>
                     <CardCvcElement
                       options={{
                         style: {

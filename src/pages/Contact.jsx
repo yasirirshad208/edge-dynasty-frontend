@@ -35,7 +35,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "http://3.87.157.93:5000/api/contact/create",
+        "http://52.203.78.4:5000/api/contact/create",
         formData
       );
 

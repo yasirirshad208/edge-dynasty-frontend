@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://3.87.157.93:5000/api/product";
+const API_URL = "http://52.203.78.4:5000/api/product";
 
 export const addProduct = async (productData) => {
   try {

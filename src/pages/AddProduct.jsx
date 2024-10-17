@@ -471,7 +471,7 @@ const AddProduct = () => {
               />
               {existingMainImage && (
                 <img
-                  src={"http://3.87.157.93:5000/" + existingMainImage}
+                  src={"http://52.203.78.4:5000/" + existingMainImage}
                   alt="Existing Main"
                   className="mt-2 max-w-xs"
                 />
@@ -496,7 +496,7 @@ const AddProduct = () => {
                   {existingSideImages.map((image, index) => (
                     <img
                       key={index}
-                      src={"http://3.87.157.93:5000/" + image}
+                      src={"http://52.203.78.4:5000/" + image}
                       className="w-24 h-24 object-cover mr-2"
                     />
                   ))}

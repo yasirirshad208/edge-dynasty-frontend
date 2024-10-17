@@ -141,7 +141,7 @@ const Products = () => {
                   <td className="cell">
                     {product.mainImage ? (
                       <img
-                        src={"http://3.87.157.93:5000/" + product.mainImage}
+                        src={"http://52.203.78.4:5000/" + product.mainImage}
                         alt="Main"
                         className="main-image"
                       />
@@ -152,7 +152,7 @@ const Products = () => {
                   <td className="cell">
                     {product.sideImages && product.sideImages.length > 0 ? (
                       <img
-                        src={"http://3.87.157.93:5000/" + product.sideImages[0]}
+                        src={"http://52.203.78.4:5000/" + product.sideImages[0]}
                         alt="Side"
                         className="side-image"
                       />

@@ -4,6 +4,44 @@ import "../styles/Shop.css";
 import { useProductList } from "../Data/Data";
 import CartContext from "../../cartContext";
 
+// Mapping of categories and sub-categories for the filters
+const categories = {
+  "Kitchen Chef Set": [
+    "Damascus Steel Chef Sets",
+    "Carbon Steel Chef Sets",
+  ],
+  "Chef Knifes": ["Fillet Knives"],
+  Daggers: ["Damascus Steel Daggers", "D2 Steel Daggers"],
+  Swords: [
+    "Medieval Swords",
+    "Premium Swords",
+    "Vikings Swords",
+    "Fantasy Swords",
+    "Samurai Swords",
+    "Damascus Steel Swords",
+    "Stainless Steel Swords",
+  ],
+  "Bowie Knives": [
+    "Stag Horn",
+    "Camping Bowie Knife",
+    "Hunting Bowie Knife",
+  ],
+  "EDC Knives": [
+    "Folding knives",
+    "Fixed Blade Knives",
+    "KeyChain Knives",
+    "Hunting Skinner Knives",
+  ],
+};
+
+// Utility function to convert URL category to original category name
+const formatCategory = (urlCategory) => {
+  const formatted = Object.keys(categories).find(
+    (category) => category.toLowerCase().replace(/ /g, "-") === urlCategory.toLowerCase()
+  );
+  return formatted || urlCategory;
+};
+
 const Shop = () => {
   const { products = [], loading, error } = useProductList();
   const { addToCart } = useContext(CartContext);
@@ -20,7 +58,8 @@ const Shop = () => {
     const category = query.get("category");
 
     if (category) {
-      setSelectedCategories([category]);
+      const formattedCategory = formatCategory(category);
+      setSelectedCategories([formattedCategory]);
     }
   }, [location.search]);
 
@@ -170,9 +209,6 @@ const Shop = () => {
                   {/* Subcategories Section - Grouped by Category */}
                   {selectedCategories.length > 0 && (
                     <div className="categoreis-filterbox w-[300px] mt-5">
-                      {/* <h3 className="sm-heading mt-5" style={{ fontSize: "16px" }}>
-                        Sub Categories
-                      </h3> */}
                       {selectedCategories.map((category) => (
                         <div key={category} className="mt-4">
                           <h4 className="sm-heading text-white" style={{ fontSize: "16px" }}>
@@ -222,7 +258,7 @@ const Shop = () => {
                           <img
                             className="w-[100%] h-[250px] object-cover rounded-xl"
                             src={
-                              "http://3.87.157.93:5000/" +
+                              "http://52.203.78.4:5000/" +
                               element.mainImage
                             }
                             alt={element.title}
@@ -325,36 +361,6 @@ const Shop = () => {
       )}
     </div>
   );
-};
-
-// Mapping of categories and sub-categories for the filters
-const categories = {
-  "Kitchen Chef Set": [
-    "Damascus Steel Chef Sets",
-    "Carbon Steel Chef Sets",
-  ],
-  "Chef Knifes": ["Fillet Knives"],
-  Daggers: ["Damascus Steel Daggers", "D2 Steel Daggers"],
-  Swords: [
-    "Medieval Swords",
-    "Premium Swords",
-    "Vikings Swords",
-    "Fantasy Swords",
-    "Samurai Swords",
-    "Damascus Steel Swords",
-    "Stainless Steel Swords",
-  ],
-  "Bowie Knives": [
-    "Stag Horn",
-    "Camping Bowie Knife",
-    "Hunting Bowie Knife",
-  ],
-  "EDC Knives": [
-    "Folding knives",
-    "Fixed Blade Knives",
-    "KeyChain Knives",
-    "Hunting Skinner Knives",
-  ],
 };
 
 export default Shop;
