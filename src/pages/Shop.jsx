@@ -270,7 +270,7 @@ const Shop = () => {
                           <img
                             className="w-[100%] h-[250px] object-cover rounded-xl"
                             src={
-                              "http://52.203.78.4:5000/" +
+                              "https://api.edgedynasty.com:5000/" +
                               element.mainImage
                             }
                             alt={element.title}

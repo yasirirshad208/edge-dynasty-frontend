@@ -28,7 +28,7 @@ const ResetPassword = () => {
       }
 
     //   try {
-    //     const response = await axios.get(`http://52.203.78.4:5000/api/user/validate-reset-token/${id}`);
+    //     const response = await axios.get(`https://api.edgedynasty.com:5000/api/user/validate-reset-token/${id}`);
 
     //     if (!response.data.success) {
     //       navigate('/'); // Redirect to homepage if the token is invalid
@@ -57,7 +57,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await axios.post(`http://52.203.78.4:5000/api/user/reset/password/${id}`, { password: newPassword });
+      const response = await axios.post(`https://api.edgedynasty.com:5000/api/user/reset/password/${id}`, { password: newPassword });
 
       if (response.data.success) {
         setSuccess('Password updated successfully!');
