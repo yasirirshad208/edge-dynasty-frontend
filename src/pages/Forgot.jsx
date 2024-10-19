@@ -19,7 +19,7 @@ const Forgot = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://api.edgedynasty.com:5000/api/user/forgot/password",
+        "https://api.edgedynasty.com/api/user/forgot/password",
         { email }
       );
     

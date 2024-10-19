@@ -471,7 +471,7 @@ const AddProduct = () => {
               />
               {existingMainImage && (
                 <img
-                  src={"https://api.edgedynasty.com:5000/" + existingMainImage}
+                  src={"https://api.edgedynasty.com/" + existingMainImage}
                   alt="Existing Main"
                   className="mt-2 max-w-xs"
                 />
@@ -496,7 +496,7 @@ const AddProduct = () => {
                   {existingSideImages.map((image, index) => (
                     <img
                       key={index}
-                      src={"https://api.edgedynasty.com:5000/" + image}
+                      src={"https://api.edgedynasty.com/" + image}
                       className="w-24 h-24 object-cover mr-2"
                     />
                   ))}

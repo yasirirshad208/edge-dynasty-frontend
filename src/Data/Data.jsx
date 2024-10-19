@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 // const products = [];
 
-const API_URL = "https://api.edgedynasty.com:5000/api/product";
+const API_URL = "https://api.edgedynasty.com/api/product";
 
 export const useProductList = () => {
   const [products, setProducts] = useState([]);

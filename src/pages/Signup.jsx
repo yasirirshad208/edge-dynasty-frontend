@@ -34,7 +34,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://api.edgedynasty.com:5000/api/user/register",
+        "https://api.edgedynasty.com/api/user/register",
         {
           firstName,
           lastName,

@@ -35,7 +35,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "https://api.edgedynasty.com:5000/api/contact/create",
+        "https://api.edgedynasty.com/api/contact/create",
         formData
       );
 

@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
   const fetchProductsByIds = async (cartItems) => {
     try {
       const productIds = cartItems.map(item => item._id);
-      const { data } = await axios.post('https://api.edgedynasty.com:5000/api/product/products-by-ids', { ids: productIds }); // Adjust API URL accordingly
+      const { data } = await axios.post('https://api.edgedynasty.com/api/product/products-by-ids', { ids: productIds }); // Adjust API URL accordingly
       return cartItems.map((item) => {
         const productDetails = data.find(product => product._id === item._id);
         return { ...productDetails, quantity: item.quantity };

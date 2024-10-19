@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://api.edgedynasty.com:5000/api/product";
+const API_URL = "https://api.edgedynasty.com/api/product";
 
 export const addProduct = async (productData) => {
   try {

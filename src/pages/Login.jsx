@@ -32,7 +32,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://api.edgedynasty.com:5000/api/user/login",
+        "https://api.edgedynasty.com/api/user/login",
         {
           email,
           password,
