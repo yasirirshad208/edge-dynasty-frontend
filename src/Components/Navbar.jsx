@@ -69,7 +69,7 @@ const Navbar = () => {
       if (token) {
         try {
           const response = await axios.get(
-            "http://52.203.78.4:5000/api/user/verify/admin",
+            "http://localhost:5000/api/user/verify/admin",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -112,7 +112,7 @@ const Navbar = () => {
 
     if (query.length > 2) { // Minimum 3 characters to search
       try {
-        const response = await axios.get(`http://52.203.78.4:5000/api/product/search?searchQuery=${query}`);
+        const response = await axios.get(`http://localhost:5000/api/product/search?searchQuery=${query}`);
         setSearchResults(response.data.data); // Assuming the API returns an array of products
         setSearchDropdownOpen(true);
       } catch (error) {
@@ -178,22 +178,22 @@ const Navbar = () => {
           className="logos py-[2px]  mb-[0px] flex "
         >
           <div className="paraorg logo-slide flex justify-between  text-white text-[14px] font-[700] p-[10] topSlider">
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
           </div>
           <div className="paraorg logo-slide flex justify-between  text-white text-[14px] font-[700] p-[10] topSlider">
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
-            <span className="slide-name"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
+            <span className="slide-name text-[20px]"><i class="fa-solid fa-bolt-lightning"></i> Flat 30% offer</span>
           </div>
         </div>
 
-      {/* Navbar */}
+      {/* Navbar */}  
       <div className="navmain">
         <nav className="container">
           <div className="navlogo">
@@ -224,7 +224,7 @@ const Navbar = () => {
                   >
                     {/* Product Image */}
                     <img
-                      src={`http://52.203.78.4:5000/${product.mainImage}`}
+                      src={`http://localhost:5000/${product.mainImage}`}
                       alt={product.name}
                       className="w-[6rem] h-[6rem] object-cover mr-4 rounded-md"
                     />
@@ -362,7 +362,7 @@ const Navbar = () => {
             cart.map((item) => (
               <div key={item._id} className="flex items-center my-6">
                 <img
-                  src={`http://52.203.78.4:5000/${item.mainImage}`}
+                  src={`http://localhost:5000/${item.mainImage}`}
                   alt={item.name}
                   className="w-20 h-20 object-cover rounded"
                 />

@@ -13,6 +13,12 @@ const Home = () => {
   const sectionsRef = useRef([]);
   const { products = [] } = useProductList(); // Ensure default values
   const navigate = useNavigate();
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  const date = new Date();
+  const monthName = monthNames[date.getMonth()];
 
   // const location = useLocation();
   // const { state } = location;
@@ -100,7 +106,9 @@ const Home = () => {
             and have the legal capacity to enter into these Terms. If you are
             using the website on behalf of an organization.
           </p>
+          <Link to="/shop">
           <button>View Products</button>
+          </Link>
         </div>
         <div>
           <video
@@ -200,7 +208,7 @@ const Home = () => {
               
             </div>
             
-            <div className="col-span-1 rounded-[20px]  relative" onClick={()=>navigate('/shop?category=axes')}>
+            <div className="col-span-1 rounded-[20px]  relative" onClick={()=>navigate('/shop?category=swords')}>
             
               <img
                 src="./Axes.webp"
@@ -210,7 +218,7 @@ const Home = () => {
               />
              
               <div className="absolute bottom-[10px] p-10">
-                <h3 className="text-white text-[25px] font-[700]">Axes</h3>
+                <h3 className="text-white text-[25px] font-[700]">Swords</h3>
                 <p className="text-white text-[16px]">
                   Hottest Deals of the month
                 </p>
@@ -240,7 +248,7 @@ const Home = () => {
               <div key={element.id}>
                 <img
                   className="w-[100%] h-[300px] object-cover rounded-tr-2xl rounded-tl-2xl"
-                  src={"http://52.203.78.4:5000/"+element.mainImage}
+                  src={"http://localhost:5000/"+element.mainImage}
                   alt={element.title}
                 />
                 <div className="flex rounded-br-2xl rounded-bl-2xl flex-col justify-center bg-transparent shadow-orange-600 shadow-sm items-center py-16 p-5">
@@ -309,7 +317,7 @@ const Home = () => {
             {products.map((element) => (
               <Link to={`/product/${element._id}`}>
               <div>
-                <img src={"http://52.203.78.4:5000/"+element.mainImage} alt="" style={{marginLeft:"20px"}}/>
+                <img src={"http://localhost:5000/"+element.mainImage} alt="" style={{marginLeft:"20px"}}/>
               </div>
               </Link>
             ))}
@@ -374,9 +382,11 @@ const Home = () => {
                 style={{ fontSize: "4.5rem" }}
                 className="lgheading-org max-w-[600px]"
               >
-                Celebrate July with Discounts on All Products!
+                Celebrate {monthName} with Discounts on All Products!
               </h1>
+              <Link to="/contact">
               <button className="paraorg">Contact US Now</button>
+              </Link>
             </div>
             <div className="relative">
               <img
@@ -398,10 +408,3 @@ const Home = () => {
 };
 
 export default Home;
-// import React from "react";
-
-// const Home = () => {
-//   return <div>Home</div>;
-// };
-
-// export default Home;

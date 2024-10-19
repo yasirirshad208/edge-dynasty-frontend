@@ -22,9 +22,9 @@ const VerifyEmail = () => {
 let response;
       try {
         if(type=== 'signup'){
-         response = await axios.get(`http://52.203.78.4:5000/api/user/verify-email?token=${token}&type=${type}`);
+         response = await axios.get(`http://localhost:5000/api/user/verify-email?token=${token}&type=${type}`);
         }else if(type=== 'forgot-password'){
-           response = await axios.get(`http://52.203.78.4:5000/api/user/verify-reset-email?token=${token}&type=${type}`);
+           response = await axios.get(`http://localhost:5000/api/user/verify-reset-email?token=${token}&type=${type}`);
         }
 
         if (response.data.success) {

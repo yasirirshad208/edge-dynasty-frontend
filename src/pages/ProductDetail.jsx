@@ -6,6 +6,7 @@ import CartContext from '../../cartContext'; // Import CartContext
 import { useProductList } from "../Data/Data";
 import "../styles/ProductDetail.css";
 import imgpayment from "../Data/paymentimg.jpg";
+import { ColorRing } from 'react-loader-spinner';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://52.203.78.4:5000/api/product/single/${id}`);
+        const response = await axios.get(`http://localhost:5000/api/product/single/${id}`);
         setProduct(response.data.data);
         setLoading(false);
         setMainImage(response.data.data.mainImage);
@@ -46,7 +47,17 @@ const ProductDetail = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div style={{display:"flex", justifyContent:"center", padding:"70px 0"}}>
+    <ColorRing
+    visible={true}
+    height="80"
+    width="80"
+    ariaLabel="color-ring-loading"
+    wrapperStyle={{}}
+    wrapperClass="color-ring-wrapper"
+    colors={['#ff7300', '#ff7300', '#ff7300', '#ff7300', '#ff7300']}
+    />
+    </div>;
   }
 
   if (error) {
@@ -62,7 +73,7 @@ const ProductDetail = () => {
       <div className="product-detail pb-[100px] text-white grid md:grid-cols-2 gap-10 container">
         <div>
           <img
-            src={"http://52.203.78.4:5000/" + mainImage}
+            src={"http://localhost:5000/" + mainImage}
             alt={product.name}
             className="main-image h-auto md:h-[650px]"
           />
@@ -73,7 +84,7 @@ const ProductDetail = () => {
                 className={`object-cover rounded-xl cursor-pointer ${
                   selectedIndex === index ? "border-4 border-blue-500" : ""
                 }`}
-                src={"http://52.203.78.4:5000/" + img}
+                src={"http://localhost:5000/" + img}
                 alt={`${product.name} ${index}`}
                 onClick={() => handleThumbnailClick(img, index)}
               />
@@ -92,7 +103,7 @@ const ProductDetail = () => {
               <del className="text-[16px] text-gray font-[800]"> $ {product.discount} USD</del>
             </span>
           </p>
-          <p className="paraorg">{product.description}</p>
+          <p className="paraorg w-[100%]">{product.description}</p>
           <input
             type="number"
             className="quantityinput"
@@ -146,7 +157,7 @@ const ProductDetail = () => {
             <div key={element.id} className="">
               <img
                 className="w-[100%] h-[300px] object-cover rounded-tr-2xl rounded-tl-2xl"
-                src={"http://52.203.78.4:5000/" + element.mainImage}
+                src={"http://localhost:5000/" + element.mainImage}
                 alt={element.title}
               />
               <div className="flex rounded-br-2xl rounded-bl-2xl flex-col justify-center bg-transparent shadow-orange-600 shadow-sm items-center py-16 p-5">

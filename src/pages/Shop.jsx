@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "../styles/Shop.css";
 import { useProductList } from "../Data/Data";
 import CartContext from "../../cartContext";
+import { ColorRing } from "react-loader-spinner";
 
 // Mapping of categories and sub-categories for the filters
 const categories = {
@@ -137,7 +138,18 @@ const Shop = () => {
   return (
     <div>
       {loading ? (
-        <p>Loading products...</p>
+        <div style={{display:"flex", justifyContent:"center", padding:"70px 0"}}>
+        <ColorRing
+        visible={true}
+        height="80"
+        width="80"
+        ariaLabel="color-ring-loading"
+        wrapperStyle={{}}
+        wrapperClass="color-ring-wrapper"
+        colors={['#ff7300', '#ff7300', '#ff7300', '#ff7300', '#ff7300']}
+        />
+        </div>
+       
       ) : error ? (
         <p>Error fetching products: {error.message}</p>
       ) : (
@@ -258,7 +270,7 @@ const Shop = () => {
                           <img
                             className="w-[100%] h-[250px] object-cover rounded-xl"
                             src={
-                              "http://52.203.78.4:5000/" +
+                              "http://localhost:5000/" +
                               element.mainImage
                             }
                             alt={element.title}

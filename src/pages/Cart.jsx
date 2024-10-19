@@ -49,7 +49,7 @@ const Cart = () => {
                   <td className="py-4">
                     <div>
                       <img
-                        src={`http://52.203.78.4:5000/${item.mainImage}`}
+                        src={`http://localhost:5000/${item.mainImage}`}
                         alt={item.name}
                         className="w-32 h-32"
                       />
@@ -103,7 +103,14 @@ const Cart = () => {
                 <p className="ft-14 font-bold">
                   ${(calculateSubtotal() + 30).toFixed(2)}
                 </p>
+                
               </div>
+              <Link
+            to="/checkout"
+            className="block text-center text-[15px] bg-orange-500 text-white-600 py-4 mt-5"
+          >
+            CHECKOUT
+          </Link>
             </div>
         </div>
       </div>

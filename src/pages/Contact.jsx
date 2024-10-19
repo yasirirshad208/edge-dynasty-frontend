@@ -35,7 +35,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "http://52.203.78.4:5000/api/contact/create",
+        "http://localhost:5000/api/contact/create",
         formData
       );
 
@@ -123,6 +123,7 @@ const Contact = () => {
                     placeholder="First Name"
                     value={formData.firstName}
                     onChange={handleChange}
+                    required
                   />
                   <input
                     type="text"
@@ -137,6 +138,7 @@ const Contact = () => {
                     placeholder="example@gmail.com"
                     value={formData.email}
                     onChange={handleChange}
+                    required
                   />
                   <input
                     type="text"
@@ -153,16 +155,9 @@ const Contact = () => {
                   placeholder="Please type your message here..."
                   value={formData.message}
                   onChange={handleChange}
+                  required
                 ></textarea>
-                <button
-                  type="submit"
-                  className="btnaddtocart btnorg btncontact mt-[50px]"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Submitting..." : "Submit"}
-                </button>
-              </form>
-              {responseMessage && (
+                {responseMessage && (
                 <p
                   className={`mt-4 ${
                     responseMessage.startsWith("Your")
@@ -174,6 +169,15 @@ const Contact = () => {
                   {responseMessage}
                 </p>
               )}
+                <button
+                  type="submit"
+                  className="btnaddtocart btnorg btncontact mt-[50px]"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
+              </form>
+              
             </div>
 
             <div className="main_earth flex items-center justify-between mr-[100px]">
