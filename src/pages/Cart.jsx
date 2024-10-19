@@ -49,7 +49,7 @@ const Cart = () => {
                   <td className="py-4">
                     <div>
                       <img
-                        src={`http://localhost:5000/${item.mainImage}`}
+                        src={`http://52.203.78.4:5000/${item.mainImage}`}
                         alt={item.name}
                         className="w-32 h-32"
                       />

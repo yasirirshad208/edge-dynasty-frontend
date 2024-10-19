@@ -23,7 +23,7 @@ const Orders = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/order/get/all",
+          "http://52.203.78.4:5000/api/order/get/all",
           {
             headers: {
               Authorization: `Bearer ${token}`, // Fixed template literal syntax
@@ -80,7 +80,7 @@ const Orders = () => {
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/order/update/status/${orderId}`, // Fixed template literal syntax
+        `http://52.203.78.4:5000/api/order/update/status/${orderId}`, // Fixed template literal syntax
         { orderStatus: newStatus },
         {
           headers: {

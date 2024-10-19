@@ -70,7 +70,7 @@ const Checkout = () => {
       if (token) {
         try {
           const response = await axios.get(
-            "http://localhost:5000/api/user/get",
+            "http://52.203.78.4:5000/api/user/get",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -176,7 +176,7 @@ const Checkout = () => {
 
         console.log(cartProducts);
         const response = await axios.post(
-          "http://localhost:5000/api/order/payment-stripe",
+          "http://52.203.78.4:5000/api/order/payment-stripe",
           {
             paymentMethodId: pm.id,
             amount: calculateSubtotal() + 30, // Include subtotal logic
